@@ -12,18 +12,17 @@ import (
 func LeoTweets(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
 	if len(ID) < 1 {
-		http.Error(w, "Debe enviar el parametro id", http.StatusBadRequest)
+		http.Error(w, "Debe enviar el parámetro id", http.StatusBadRequest)
 		return
 	}
 
 	if len(r.URL.Query().Get("pagina")) < 1 {
-		http.Error(w, "Debe enviar el parametro pagina", http.StatusBadRequest)
+		http.Error(w, "Debe enviar el parámetro página", http.StatusBadRequest)
 		return
 	}
-
 	pagina, err := strconv.Atoi(r.URL.Query().Get("pagina"))
 	if err != nil {
-		http.Error(w, "Debe enviar el parametro pagina con un valor mayor a cero", http.StatusBadRequest)
+		http.Error(w, "Debe enviar el parámetro página con un valor mayor a 0", http.StatusBadRequest)
 		return
 	}
 
